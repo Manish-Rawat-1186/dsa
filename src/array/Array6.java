@@ -3,21 +3,26 @@ package array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
-import static java.lang.Integer.MIN_VALUE;
+import static java.lang.Integer.*;
 
 public class Array6 {
     public static void main(String[] args) {
         ArrayList <Boolean> list = new ArrayList<>();
-        int[] candies = {2,3,5,1,3};
+        Integer[] candies = {2,3,5,1,3};
         int n = 3;
-        for (int candy : candies) {
-            int max = MIN_VALUE;
-            int sum = candy + n;
+        int max = -1;
+        for (int i = 0; i < candies.length; i++) {
+            max = Integer.max(max, candies[i]);
+        }
+        for (int i = 0; i < candies.length; i++) {
+            int sum = candies[i] + n;
             if (sum >= max) {
+                int temp = sum;
                 max = sum;
                 list.add(true);
-            }else {
+            } else {
                 list.add(false);
             }
 
